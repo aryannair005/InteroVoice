@@ -1,6 +1,6 @@
-# InterviewIQ.AI
+# InteroVoice
 
-AI-powered mock interview platform built with the MERN stack. InterviewIQ.AI analyzes a candidate's resume, generates role- and experience-specific interview questions, conducts a timed voice-assisted interview, evaluates answers with AI, and stores performance history.
+AI-powered mock interview platform built with the MERN stack. InteroVoice analyzes a candidate's resume, generates role- and experience-specific interview questions, conducts a timed voice-assisted interview, evaluates answers with AI, and stores performance history.
 
 ## ✨ Features
 
