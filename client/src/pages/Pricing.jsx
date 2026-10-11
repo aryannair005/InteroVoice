@@ -69,7 +69,7 @@ const Pricing = () => {
         key:import.meta.env.VITE_RAZORPAY_KEY_ID,
         amount:result.data.amount,
         currency:"INR",
-        name:"InterviewIQ.AI",
+        name:"InteroVoice",
         description:`${plan.name}-${plan.credits} Credits`,
         order_id:result.data.id,
 
