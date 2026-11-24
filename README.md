@@ -2,6 +2,12 @@
 
 AI-powered mock interview platform built with the MERN stack. InteroVoice analyzes a candidate's resume, generates role- and experience-specific interview questions, conducts a timed voice-assisted interview, evaluates answers with AI, and stores performance history.
 
+## 🚀 Live Demo
+
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge)](https://interovoice-wppp.onrender.com/)
+
+🔗 **Deployment:** [https://interovoice-wppp.onrender.com/](https://interovoice-wppp.onrender.com/)
+
 ## ✨ Features
 
 - **AI-powered mock interviews** with role and experience-based question generation
