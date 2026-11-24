@@ -16,7 +16,10 @@ const PORT = process.env.PORT
 app.use(express.json())
 app.use(cookieParser());
 app.use(cors({
-    origin:"https://interovoice-wppp.onrender.com",
+    origin:[
+        "http://localhost:5173",
+        "https://interovoice-wppp.onrender.com"
+    ],
     credentials:true,
 }))
 
