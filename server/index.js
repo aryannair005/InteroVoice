@@ -5,6 +5,7 @@ import authRouter from "./routes/auth.route.js"
 import userRouter from "./routes/user.route.js"
 import interviewRouter from "./routes/interview.route.js"
 import paymentRouter from "./routes/payment.route.js"
+import healthRouter from "./routes/health.route.js"
 import cookieParser from "cookie-parser";
 import cors from "cors"
 dotenv.config()
@@ -18,6 +19,10 @@ app.use(cors({
     origin:"http://localhost:5173",
     credentials:true,
 }))
+
+
+// Health Check Route (public; used by uptime monitors)
+app.use("/health", healthRouter)
 
 
 // Routes 
