@@ -27,8 +27,11 @@ const Step1SetUp = ({onStart}) => {
   const [analysisDone,setAnalysisDone] = useState(false)
   const [analyzing,setAnalyzing] = useState(false)
 
+  const [analysisError, setAnalysisError] = useState("")
+
   const handleUploadResume = async () => {
     if(!resumeFile || analyzing) return;
+    setAnalysisError("")
     setAnalyzing(true)
 
     const formdata = new FormData()
@@ -37,7 +40,6 @@ const Step1SetUp = ({onStart}) => {
     try{
       const result = await axios.post(ServerUrl + "/api/interview/resume",formdata,{withCredentials:true})
 
-      console.log(result.data)
 
       setRole(result.data.role || "")
       setExperience(result.data.experience || "")
@@ -45,8 +47,10 @@ const Step1SetUp = ({onStart}) => {
       setSkills(result.data.skills || [])
       setResumeText(result.data.resumeText || "")
       setAnalysisDone(true) 
-    }catch(error){
-      console.log(error)
+    } catch {
+      setAnalysisError("Couldn’t analyze this résumé. Try again or enter your role and experience manually.")
+    } finally {
+      setAnalyzing(false)
     }
   }
 
@@ -154,11 +158,12 @@ const Step1SetUp = ({onStart}) => {
               className='border-2 border-dashed border-gray-300 rounded-xl p-8 text-center cursor-pointer hover:border-studio-500 hover:bg-studio-50 transition'>
                 <FaFileUpload className='text-4xl mx-auto text-studio-600 mb-3'/>
                 <input
+                disabled={analyzing}
                 type="file"
                 accept='application/pdf'
                 id='resumeUpload'
                 className='hidden'
-                onChange={(e)=>setResumeFile(e.target.files[0])}/>
+                onChange={(e)=>{setResumeFile(e.target.files[0]); setAnalysisError("")}}/>
 
                 <p className='text-gray-600 font-medium'>
                   {resumeFile? resumeFile.name : "Click to upload resume(Optional)"}
@@ -167,6 +172,7 @@ const Step1SetUp = ({onStart}) => {
                 {resumeFile && (
                   <motion.button
                   whileHover={{scale:1.02}}
+                  disabled={analyzing}
                   onClick={(e)=>{e.stopPropagation();handleUploadResume()}}
                   className='mt-4 bg-gray-900 text-white px-5 py-2 rounded-lg hover:bg-gray-800 transition'>
                     {analyzing ? "Analyzing...":"Analyze Resume"}
@@ -175,6 +181,8 @@ const Step1SetUp = ({onStart}) => {
                 )}
               </motion.div>
             )}
+            {analysisError && <p role="alert" className="text-sm text-red-700">{analysisError}</p>}
+
             {analysisDone && (
               <motion.div
               initial={{opacity:0,y:20}}
