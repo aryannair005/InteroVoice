@@ -11,7 +11,7 @@ import {
   BsBarChart,
   BsFileEarmarkText,
 } from "react-icons/bs";
-import { HiSparkles } from "react-icons/hi";
+
 import { useNavigate } from "react-router-dom";
 
 // Images
@@ -31,81 +31,78 @@ const Home = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-[#f3f3f3] flex flex-col">
+    <div className="min-h-screen bg-paper flex flex-col">
       <Navbar />
 
-      <div className="flex-1 px-4 sm:px-6 py-16 md:py-20">
+      <div className="flex-1 px-4 sm:px-6 pt-6 pb-16">
         <div className="max-w-6xl mx-auto">
 
-          {/* Hero */}
-          <div className="flex justify-center mb-6">
-            <div className="bg-white border border-gray-200 text-gray-600 text-xs sm:text-sm px-4 py-2 rounded-full flex items-center gap-2 shadow-sm">
-              <HiSparkles
-                size={16}
-                className="text-green-600"
-              />
-              AI Powered Smart Interview Platform
-            </div>
-          </div>
-
-          <div className="text-center mb-24 md:mb-32">
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight max-w-4xl mx-auto tracking-tight"
-            >
-              Practice Interviews with{" "}
-              <span className="inline-block bg-green-100 text-green-600 px-4 sm:px-5 py-1 rounded-full mt-2">
-                AI Intelligence
-              </span>
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8 }}
-              className="text-gray-500 mt-6 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed"
-            >
-              Role-based mock interviews with smart follow-ups, adaptive
-              difficulty and real-time performance evaluation.
-            </motion.p>
-
-            <div className="flex flex-wrap justify-center gap-4 mt-10">
-              <motion.button
-                onClick={() => {
-                  if (!userData) {
-                    setShowAuth(true);
-                    return;
-                  }
-                  navigate("/interview");
-                }}
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
-                className="bg-black text-white px-8 sm:px-10 py-3 rounded-full hover:opacity-90 transition shadow-md"
+          <section className="studio-hero">
+            <div className="studio-intro">
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="studio-title"
               >
-                Start Interview
-              </motion.button>
+                Find your <em>interview voice.</em>
+              </motion.h1>
 
-              <motion.button
-                onClick={() => {
-                  if (!userData) {
-                    setShowAuth(true);
-                    return;
-                  }
-                  navigate("/history");
-                }}
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
-                className="border border-gray-300 bg-white px-8 sm:px-10 py-3 rounded-full hover:bg-gray-100 transition shadow-sm"
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8 }}
+                className="studio-summary"
               >
-                View History
-              </motion.button>
+                Practice out loud with an AI interviewer that asks follow-up questions tailored to your role. Review your answers after each session.
+              </motion.p>
+
+              <div className="flex flex-wrap gap-3 mt-7">
+                <motion.button
+                  onClick={() => {
+                    if (!userData) {
+                      setShowAuth(true);
+                      return;
+                    }
+                    navigate("/interview");
+                  }}
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="bg-studio-700 text-white px-6 py-3 rounded-lg hover:opacity-90 transition shadow-md"
+                >
+                  Start Interview
+                </motion.button>
+
+                <motion.button
+                  onClick={() => {
+                    if (!userData) {
+                      setShowAuth(true);
+                      return;
+                    }
+                    navigate("/history");
+                  }}
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="border border-studio-200 bg-white px-6 py-3 rounded-lg hover:bg-gray-100 transition shadow-sm"
+                >
+                  View History
+                </motion.button>
+              </div>
             </div>
-          </div>
+
+            <div className="studio-record" aria-hidden="true">
+              <div className="studio-grooves">
+                <div className="studio-wave">
+                  {[12, 22, 16, 36, 52, 30, 64, 86, 48, 72, 100, 58, 42, 76, 54, 30, 44, 24, 14].map((height, index) => (
+                    <i key={index} style={{ height: height + "%" }} />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
 
           {/* Interview Steps */}
-          <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-6 mb-32">
+          <div className="grid md:grid-cols-3 gap-6 mb-20">
             {[
               {
                 icon: <BsRobot size={24} />,
@@ -137,18 +134,14 @@ const Home = () => {
                   scale: 1.04,
                   y: -5,
                 }}
-                className={`relative bg-white rounded-3xl border-2 border-green-100 hover:border-green-400 p-8 md:p-9 w-full sm:w-80 shadow-md hover:shadow-xl transition-all duration-300
-                  ${index === 0 ? "md:-rotate-3" : ""}
-                  ${index === 1 ? "md:rotate-2 md:-mt-6" : ""}
-                  ${index === 2 ? "md:-rotate-2" : ""}
-                `}
+                className="relative bg-white rounded-xl border border-studio-200 p-6 shadow-sm"
               >
-                <div className="absolute -top-7 left-1/2 -translate-x-1/2 bg-white border-2 border-green-500 text-green-600 w-14 h-14 rounded-2xl flex items-center justify-center shadow-lg">
+                <div className="mb-4 bg-studio-50 text-studio-700 w-12 h-12 rounded-xl flex items-center justify-center">
                   {item.icon}
                 </div>
 
-                <div className="pt-6 text-center">
-                  <div className="text-xs text-green-600 font-semibold mb-2 tracking-wider">
+                <div className="text-left">
+                  <div className="text-xs text-studio-600 font-semibold mb-2 tracking-wider">
                     {item.step}
                   </div>
 
@@ -165,16 +158,16 @@ const Home = () => {
           </div>
 
           {/* Advanced AI Capabilities */}
-          <div className="mb-32">
+          <div className="mb-18">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-3xl sm:text-4xl font-semibold text-center mb-12 md:mb-16"
+              className="text-3xl sm:text-4xl studio-section-title mb-8 border-b border-studio-200 pb-4"
             >
               Advanced AI{" "}
-              <span className="text-green-600">Capabilities</span>
+              <span className="text-studio-600">Capabilities</span>
             </motion.h2>
 
             <div className="grid md:grid-cols-2 gap-6 md:gap-8">
@@ -214,7 +207,7 @@ const Home = () => {
                     delay: index * 0.1,
                   }}
                   whileHover={{ scale: 1.015, y: -4 }}
-                  className="bg-white border border-gray-200 rounded-3xl p-6 sm:p-8 shadow-sm hover:shadow-xl transition-all duration-300"
+                  className="bg-white border border-gray-200 rounded-xl p-6 sm:p-8 shadow-sm hover:shadow-xl transition-all duration-300"
                 >
                   <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8">
 
@@ -227,7 +220,7 @@ const Home = () => {
                     </div>
 
                     <div className="w-full sm:w-1/2 text-center sm:text-left">
-                      <div className="bg-green-50 text-green-600 w-12 h-12 rounded-xl flex items-center justify-center mb-5 mx-auto sm:mx-0">
+                      <div className="bg-studio-50 text-studio-600 w-12 h-12 rounded-xl flex items-center justify-center mb-5 mx-auto sm:mx-0">
                         {item.icon}
                       </div>
 
@@ -253,10 +246,10 @@ const Home = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-3xl sm:text-4xl font-semibold text-center mb-12 md:mb-16"
+              className="text-3xl sm:text-4xl studio-section-title mb-8 border-b border-studio-200 pb-4"
             >
               Multiple Interview{" "}
-              <span className="text-green-600">Modes</span>
+              <span className="text-studio-600">Modes</span>
             </motion.h2>
 
             <div className="grid md:grid-cols-2 gap-6 md:gap-8">
@@ -292,7 +285,7 @@ const Home = () => {
                     delay: index * 0.1,
                   }}
                   whileHover={{ scale: 1.015, y: -5 }}
-                  className="bg-white border border-gray-200 rounded-3xl p-6 sm:p-8 shadow-sm hover:shadow-xl transition-all duration-300"
+                  className="bg-white border border-gray-200 rounded-xl p-6 sm:p-8 shadow-sm hover:shadow-xl transition-all duration-300"
                 >
                   <div className="flex flex-col sm:flex-row items-center gap-6">
 

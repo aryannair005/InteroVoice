@@ -168,7 +168,7 @@ const Step3Report = ({report}) => {
 
   } 
   return (
-    <div className='min-h-screen bg-linear-to-br from-gray-50 to-green-50 px-4 sm:px-6 lg:px-10 py-8'>
+    <div className='min-h-screen bg-linear-to-br from-gray-50 to-studio-50 px-4 sm:px-6 lg:px-10 py-8'>
       <div className='mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4'>
         <div className='md:mb-10 w-full flex items-start gap-4'>
           <button
@@ -181,7 +181,7 @@ const Step3Report = ({report}) => {
             <p className='text-gray-500 mt-2'>AI-powered performance insights</p>
           </div>
         </div>
-        <button onClick={downloadPDF} className='bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-xl shadow-md transition-all duration-300 font-semibold text-sm sm:text-base text-nowrap'>Download PDF</button>
+        <button onClick={downloadPDF} className='bg-studio-600 hover:bg-studio-700 text-white px-6 py-3 rounded-xl shadow-md transition-all duration-300 font-semibold text-sm sm:text-base text-nowrap'>Download PDF</button>
 
       </div>
 
@@ -199,7 +199,7 @@ const Step3Report = ({report}) => {
               text={`${score}/10`}
               styles={buildStyles({
                 textSize:"18px",
-                pathColor:"#10b981",
+                pathColor:"#884782",
                 textColor:"#ef4444",
                 trailColor:"#e5e7eb"
               })}/></div>
@@ -221,10 +221,10 @@ const Step3Report = ({report}) => {
                   <div key={i}>
                     <div className='flex justify-between mb-2 text-sm sm:text-base'>
                       <span>{s.label}</span>
-                      <span className='font-semibold text-green-600'>{s.value}</span>
+                      <span className='font-semibold text-studio-600'>{s.value}</span>
                     </div>
                     <div className='bg-gray-200 h-2 sm:h-3 rounded-full'>
-                      <div className='bg-green-500 h-full rounded-full'style ={{width:`${s.value*10}%`}}></div>
+                      <div className='bg-studio-500 h-full rounded-full'style ={{width:`${s.value*10}%`}}></div>
 
                     </div>
                   </div>
@@ -246,7 +246,7 @@ const Step3Report = ({report}) => {
                 <XAxis dataKey="name"/>
                 <YAxis domain={[0,10]}/>
                 <Tooltip/>
-                <Area type="monotone" dataKey="score" stroke='#22c55e' fill='#bbf7d0' strokeWidth={3} />
+                <Area type="monotone" dataKey="score" stroke='#884782' fill='#ead4eb' strokeWidth={3} />
                 </AreaChart>
               </ResponsiveContainer>
             </div>
@@ -266,10 +266,10 @@ const Step3Report = ({report}) => {
                       <p className='font-semibold text-gray-800 text-sm sm:text-base leading-relaxed'>{q.question || "Question not available"}</p>
                     </div>
 
-                    <div className='bg-green-100 text-green-600 px-3 py-1 rounded-full font-bold text-xs sm:text-sm w-fit'>{q.score}</div>
+                    <div className='bg-studio-100 text-studio-600 px-3 py-1 rounded-full font-bold text-xs sm:text-sm w-fit'>{q.score}</div>
                   </div>
-                  <div className='bg-green-50 border border-green-200 p-4 rounded-lg'>
-                    <p className='text-xs text-green-600 font-semibold mb-1'>AI</p>
+                  <div className='bg-studio-50 border border-studio-200 p-4 rounded-lg'>
+                    <p className='text-xs text-studio-600 font-semibold mb-1'>AI</p>
                     <p className='text-sm text-gray-700 leading-relaxed'>{q.feedback && q.feedback.trim() != "" ? q.feedback:"No feedback available for this question."}</p>
                   </div>
                 </div>

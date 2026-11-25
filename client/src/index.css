@@ -1,1 +1,71 @@
 @import "tailwindcss";
+
+@theme {
+  --color-paper: #faf7f4;
+  --color-studio-50: #faf3fa;
+  --color-studio-100: #f1e4f2;
+  --color-studio-200: #dbc5dc;
+  --color-studio-400: #ba82b3;
+  --color-studio-500: #93538c;
+  --color-studio-600: #804278;
+  --color-studio-700: #66335f;
+  --font-sans: "Segoe UI", system-ui, sans-serif;
+}
+
+@layer base {
+  body { background: var(--color-paper); color: #2e2130; }
+  :focus-visible { outline: 3px solid #a05896; outline-offset: 3px; }
+}
+
+.studio-wordmark, .studio-title, .studio-section-title {
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: -.045em;
+}
+.studio-wordmark { font-size: 1.5rem; font-weight: 700; }
+.studio-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  background: #f2e8ed;
+  border: 1px solid #dbc5dc;
+  border-radius: 1rem;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+.studio-intro { align-self: center; padding: clamp(1.5rem, 4.6vw, 4.5rem); }
+.studio-title { font-size: clamp(3.25rem, 6.5vw, 6rem); line-height: .99; }
+.studio-title em { display: block; color: var(--color-studio-700); }
+.studio-summary { margin-top: 1.4rem; max-width: 39ch; color: #584853; line-height: 1.65; }
+.studio-record {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background-color: #352339;
+  background-image: radial-gradient(#6d526d 1px, transparent 1px);
+  background-size: 12px 12px;
+  padding: 8%;
+}
+.studio-grooves {
+  width: min(100%, 23rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: repeating-radial-gradient(circle, #4a324d 0 5px, #735575 6px, #4a324d 7px);
+  border: 1px solid #876987;
+  box-shadow: 0 1rem 2rem #1a101a66;
+}
+.studio-wave {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.2%;
+  width: 70%;
+  height: 34%;
+}
+.studio-wave i { width: 3%; border-radius: 1rem; background: #f5c29d; }
+.studio-section-title { line-height: 1.1; }
+@media (max-width: 45rem) {
+  .studio-hero { grid-template-columns: 1fr; }
+  .studio-record { height: 10rem; padding: 0; }
+  .studio-grooves { width: 15rem; align-self: center; margin-block: -2.5rem; }
+}

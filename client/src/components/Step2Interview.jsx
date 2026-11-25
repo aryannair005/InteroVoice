@@ -513,7 +513,7 @@ const Step2Interview = ({ interviewData, onFinish }) => {
   /* -------------------- UI -------------------- */
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-emerald-50 via-white to-teal-100 flex items-center justify-center p-4 sm:p-6">
+    <div className="min-h-screen bg-linear-to-br from-studio-50 via-white to-studio-100 flex items-center justify-center p-4 sm:p-6">
       <div className="w-full max-w-350 min-h-[80vh] bg-white rounded-3xl shadow-2xl border border-gray-200 flex flex-col lg:flex-row overflow-hidden">
 
         <div className="w-full lg:w-[35%] bg-white flex flex-col items-center p-6 space-y-6 border-r border-gray-200">
@@ -546,7 +546,7 @@ const Step2Interview = ({ interviewData, onFinish }) => {
               </span>
 
               {isAIPlaying && (
-                <span className="text-sm font-semibold text-emerald-600">
+                <span className="text-sm font-semibold text-studio-600">
                   AI Speaking
                 </span>
               )}
@@ -568,7 +568,7 @@ const Step2Interview = ({ interviewData, onFinish }) => {
             <div className="grid grid-cols-2 gap-6 text-center">
 
               <div>
-                <span className="text-2xl font-bold text-emerald-600 block">
+                <span className="text-2xl font-bold text-studio-600 block">
                   {currentIndex + 1}
                 </span>
 
@@ -578,7 +578,7 @@ const Step2Interview = ({ interviewData, onFinish }) => {
               </div>
 
               <div>
-                <span className="text-2xl font-bold text-emerald-600 block">
+                <span className="text-2xl font-bold text-studio-600 block">
                   {questions.length}
                 </span>
 
@@ -593,7 +593,7 @@ const Step2Interview = ({ interviewData, onFinish }) => {
 
         <div className="flex-1 flex flex-col p-4 sm:p-6 md:p-8 relative">
 
-          <h2 className="text-xl sm:text-2xl font-bold text-emerald-600 mb-6">
+          <h2 className="text-xl sm:text-2xl font-bold text-studio-600 mb-6">
             AI Smart Interview
           </h2>
 
@@ -618,7 +618,7 @@ const Step2Interview = ({ interviewData, onFinish }) => {
               setAnswer(e.target.value)
             }
             value={answer}
-            className="flex-1 bg-gray-100 p-4 sm:p-6 rounded-2xl resize-none outline-none border border-gray-200 focus:ring-2 focus:ring-emerald-500 transition text-gray-800"
+            className="flex-1 bg-gray-100 p-4 sm:p-6 rounded-2xl resize-none outline-none border border-gray-200 focus:ring-2 focus:ring-studio-500 transition text-gray-800"
           />
 
           {!feedback ? (
@@ -640,7 +640,7 @@ const Step2Interview = ({ interviewData, onFinish }) => {
                 onClick={submitAnswer}
                 disabled={isSubmitting}
                 whileTap={{ scale: 0.95 }}
-                className="flex-1 bg-linear-to-r from-emerald-600 to-teal-500 text-white py-3 sm:py-4 rounded-2xl shadow-lg hover:opacity-90 transition font-semibold disabled:bg-gray-500"
+                className="flex-1 bg-linear-to-r from-studio-600 to-studio-500 text-white py-3 sm:py-4 rounded-2xl shadow-lg hover:opacity-90 transition font-semibold disabled:bg-gray-500"
               >
                 {isSubmitting
                   ? "Submitting..."
@@ -652,16 +652,16 @@ const Step2Interview = ({ interviewData, onFinish }) => {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="mt-6 bg-emerald-50 border border-emerald-200 p-5 rounded-2xl shadow-sm"
+              className="mt-6 bg-studio-50 border border-studio-200 p-5 rounded-2xl shadow-sm"
             >
 
-              <p className="text-emerald-700 font-medium mb-4">
+              <p className="text-studio-700 font-medium mb-4">
                 {feedback}
               </p>
 
               <button
                 onClick={handleNext}
-                className="w-full bg-linear-to-r from-emerald-600 to-teal-500 text-white py-3 rounded-xl shadow-md hover:opacity-90 transition flex items-center justify-center gap-1"
+                className="w-full bg-linear-to-r from-studio-600 to-studio-500 text-white py-3 rounded-xl shadow-md hover:opacity-90 transition flex items-center justify-center gap-1"
               >
                 Next Question
                 <BsArrowRight size={18} />
