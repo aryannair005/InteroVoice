@@ -36,7 +36,7 @@ const Auth = (isModel = false) => {
   return (
     <div className={`
       w-full
-      ${isModel ? "py-4" : "min-h-screen bg-[#f3f3f3] flex items-center justify-center px-6 py-20"}
+      ${isModel ? "py-4" : "min-h-screen bg-paper flex items-center justify-center px-6 py-20"}
     `}>
       <motion.div 
       initial = {{opacity:0 , y:-40}}
@@ -55,7 +55,7 @@ const Auth = (isModel = false) => {
         </div>
         <h1 className='text-2xl md:text-3xl font-semibold text-center leading-snug mb-4'>
             Continue with
-            <span className='bg-green-100 text-green-600 px-3 py-1 rounded-full inline-flex items-center gap-2' >
+            <span className='bg-studio-100 text-studio-600 px-3 py-1 rounded-full inline-flex items-center gap-2' >
                 <IoSparkles size = {16}/> AI Smart Interview
             </span>
         </h1>

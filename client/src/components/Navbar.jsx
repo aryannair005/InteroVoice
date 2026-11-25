@@ -32,20 +32,20 @@ const Navbar = () => {
     }
 
   return (
-    <div className='bg-[#f3f3f3] flex justify-center px-4 pt-6'>
+    <div className='bg-paper flex justify-center px-4 pt-6'>
         <motion.div 
         initial = {{opacity : 0 , y:-40}}
         animate = {{opacity : 1 , y:0}}
         transition={{duration : 0.3}}
-        className='w-full max-w-6xl bg-white rounded-3xl shadow-sm border border-gray-200 px-8 py-4 flex justify-between items-center relative'>
+        className='w-full max-w-6xl bg-white z-20 rounded-xl border border-studio-200 px-4 sm:px-7 py-4 flex justify-between items-center relative'>
             <div className='flex items-center gap-3 cursor-pointer'>
-                <div className='bg-black text-white p-2 rounded-lg'>
+                <div className='bg-studio-700 text-white p-2 rounded-lg'>
                     <BsRobot size = {18}/>
                 </div>
-                <h1 className='font-semibold hidden md:block text-lg'>InteroVoice</h1>
+                <h1 className='studio-wordmark'>InteroVoice</h1>
             </div>
 
-            <div className='flex items-center gap-6 relative'>
+            <div className='flex items-center gap-3 relative'>
                 <div className='relative'>
                     <button onClick={() => {
                         if(!userData){
@@ -55,7 +55,7 @@ const Navbar = () => {
                         setShowCreditPopup(!showCreditPopup);
                         setShowUserPopup(false);
                     }}
-                    className='flex items-center gap-2 bg-grey-100 px-4 py-2 rounded-full text-md hover:bg-grey-200 transition'>
+                    className='flex items-center gap-2 bg-studio-100 px-4 py-2 rounded-full text-md hover:bg-studio-200 transition'>
                         <BsCoin size = {20} />
                         {userData?.credits || 0 }
                     </button>
